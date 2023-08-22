@@ -1,0 +1,566 @@
+
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+
+  <title></title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  
+  
+<meta name="viewport" content="width=device-width, initial-scale=0.7">
+<style>
+@import url(https://fonts.googleapis.com/css?family=Bad+Script);
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+html, body{
+  height: 100%;
+}
+
+body{
+
+	font-family: 'Bad Script', cursive;
+        
+	-webkit-font-smoothing: antialiased;
+}
+
+#wrapper{
+   background-color: #000000;
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+  background-size: 100% 100%;
+
+	width: 100%;
+	height: 2000px;  
+}
+
+#perspectiva{
+	position:fixed;
+	top:270px;
+	left:50%;
+	margin-left: -200px;
+	perspective:1000;
+}
+
+#contenedor{
+	box-shadow: 0px 2px 10px hsla(0,0%,10%,1);
+	width: 400px;
+	height: 280px;
+	transform-style: preserve-3d;
+}
+
+.cara{
+	position: absolute;
+	top:0;
+	left:0;
+	width: 100%;
+	height: 100%;
+	backface-visibility:hidden;
+}
+
+.frontal{
+	background: -webkit-linear-gradient(top, hsla(54,4%,85%,1) 0%,hsla(54,0%,96%,1) 50%,hsla(54,4%,80%,1) 100%);
+	z-index: 20;
+}
+
+.frontal h1{
+	color: hsla(0,0%,20%,1);
+	text-shadow: 0px 1px 1px hsla(0,0%,100%,1);
+	font-size: 1em;
+	text-align: center;
+	margin-top: 110px;
+}
+
+.frontal h1 span{
+	color: hsla(0,0%,50%,1);
+	text-shadow: 0px 1px 1px hsla(0,0%,100%,1);
+	font-size: .8em;
+	text-align: center;
+}
+
+.trasera{
+	background: -webkit-linear-gradient(top, hsla(54,0%,96%,1) 0%, hsla(54,0%,56%,1) 100%);
+	transform:rotateY(-180deg);
+}
+
+#abrir{
+	position: absolute;
+	top:0;
+	left:0;
+	height: 0;
+	width: 80px;
+	border-top: 175px solid hsla(0,0%,85%,1);
+	border-left: 160px solid transparent;
+	border-right: 160px solid transparent;
+  transform-origin:center top;
+	z-index: 10;
+.shadow {
+			width: 250px;
+		}
+}
+
+#partes{
+	position: absolute;
+	top:0px;
+	left:0px;
+	width: 0;
+	height: 0;
+	border-left: 200px solid hsla(0,0%,90%,1);
+	border-top: 140px solid transparent;
+	border-bottom: 140px solid transparent;
+	z-index: 5;
+}
+
+#partes:after{
+	content: "";
+	position: absolute;
+	bottom:-140px;
+	left:-200px;
+	height: 0;
+	width: 80px;
+	border-bottom: 175px solid hsla(0,0%,95%,1);
+	border-left: 160px solid transparent;
+	border-right: 160px solid transparent;
+
+}
+
+#partes:before{
+	content: "";
+	position: absolute;
+	top:-140px;
+	right:-200px;
+	width: 0;
+	height: 0;
+	border-right: 200px solid hsla(0,0%,90%,1);
+	border-top: 140px solid transparent;
+	border-bottom: 140px solid transparent;
+}
+
+#carta{
+	background: -webkit-linear-gradient(top, hsla(54,0%,96%,1) 0%,hsla(0,0%,98%,1) 70%,hsla(0,0%,95%,1) 100%);
+	box-shadow: 0px 2px 5px hsla(0,0%,10%,1);
+	border-radius: 5px;
+	position: absolute;
+	top:3px;
+	left:0;
+	margin: 0 0 0 5px;
+	width: 390px;
+	height: 200px;
+	overflow-x: hidden;
+        overflow-y: auto;
+        
+	z-index: 2;
+}
+
+#carta hgroup{
+	margin-top:20px;
+}
+
+#carta hgroup h1{
+	font-size: 1.6em;
+	color: hsla(0,0%,70%,1);
+	text-align: center;
+	text-shadow: 0px 2px 1px hsla(0,0%,100%,1);
+}
+
+#carta hgroup h2{
+	font-size: 1em;
+	color: hsla(0,63%,57%,1);
+         margin-top:-20px;
+	text-align: center;
+	text-shadow: 0px 1px 1px hsla(0,0%,100%,1);
+}
+
+#carta p{
+	color: hsla(0,0%,20%,1);
+	text-shadow: 0px 1px 1px hsla(0,0%,100%,1);
+	font-size: 0.85em;
+	line-height:1.45em;
+	margin: 30px 50px 0 50px;
+}
+
+#carta p:first-letter{
+	color: hsla(0,63%,57%,1);
+	text-shadow: 0px 2px 1px hsla(0,0%,100%,1);
+	font-size: 2.5em;
+	float: left;
+	line-height:1.2em;
+	padding:10px 10px 0 0;
+}
+
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 90%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+
+.active, .accordion:hover {
+  background-color: #ccc;
+}
+
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+
+.shadow {
+	position: absolute;
+	top: 650px;
+	left: 50%;
+	width: 400px;
+	height: 30px;
+	transition: .4s;
+	transform: translateX(-50%);
+	-webkit-transition: .4s;
+	-webkit-transform: translateX(-50%);
+	-moz-transition: .4s;
+	-moz-transform: translateX(-50%);
+	border-radius: 100%;
+        z-index: -1;
+	background: radial-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.0), rgba(0,0,0,0.0));
+}
+
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+.me {
+  width: 400px;
+  margin: 90px auto;
+}
+.me p,
+.me h1 {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-align: center;
+}
+.me p {
+  font-weight: 200;
+}
+.me span {
+  font-weight: bold;
+}
+.social {
+  position: fixed;
+  top: 20px;
+}
+.social ul {
+  padding: 0px;
+  -webkit-transform: translate(-270px, 0);
+  -moz-transform: translate(-270px, 0);
+  -ms-transform: translate(-270px, 0);
+  -o-transform: translate(-270px, 0);
+  transform: translate(-270px, 0);
+}
+.social ul li {
+  display: block;
+  margin: 5px;
+  background: rgba(0, 0, 0, 0.36);
+  width: 300px;
+  text-align: right;
+  padding: 10px;
+  -webkit-border-radius: 0 30px 30px 0;
+  -moz-border-radius: 0 30px 30px 0;
+  border-radius: 0 30px 30px 0;
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+  -ms-transition: all 1s;
+  -o-transition: all 1s;
+  transition: all 1s;
+}
+.social ul li:hover {
+  -webkit-transform: translate(110px, 0);
+  -moz-transform: translate(110px, 0);
+  -ms-transform: translate(110px, 0);
+  -o-transform: translate(110px, 0);
+  transform: translate(110px, 0);
+  background: rgba(255, 255, 255, 0.4);
+}
+.social ul li:hover a {
+  color: #000;
+}
+.social ul li:hover i {
+  color: #fff;
+  background: red;
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  transform: rotate(360deg);
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+  -ms-transition: all 1s;
+  -o-transition: all 1s;
+  transition: all 1s;
+}
+.social ul li i {
+  margin-left: 10px;
+  color: #000;
+  background: #fff;
+  padding: 10px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
+  background: #ffffff;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+
+.popup {
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+            display: none;
+        }
+        .popup-content {
+            background-color: white;
+            margin: 10% auto;
+            padding: 20px;
+            border: 1px solid #888888;
+            width: 30%;
+            font-weight: bolder;
+        }
+        .popup-content button {
+            display: block;
+            margin: 0 auto;
+        }
+        .show {
+            display: block;
+        }
+
+</style>
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+<link href='https://fonts.googleapis.com/css?family=Raleway:400,200' rel='stylesheet' type='text/css'> 
+  
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<nav class="social">
+  
+</head>
+
+<body translate="no" style="background: #323641;">
+
+          <ul>
+              
+              <li><a href="https://chat.whatsapp.com/BMQ6tn07IYD8PjrxQZheBG">Whatsapp <i class="fa fa-whatsapp"></i></a></li>
+              <li><a href="https://www.instagram.com/gdsc.dce/">Instagram <i class="fa fa-instagram"></i></a></li>
+              <li><a href="https://discord.gg/mZrsAFrKxw">Discord <i class="fa fa-discord"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 640 512"><path d="M524.531,69.836a1.5,1.5,0,0,0-.764-.7A485.065,485.065,0,0,0,404.081,32.03a1.816,1.816,0,0,0-1.923.91,337.461,337.461,0,0,0-14.9,30.6,447.848,447.848,0,0,0-134.426,0,309.541,309.541,0,0,0-15.135-30.6,1.89,1.89,0,0,0-1.924-.91A483.689,483.689,0,0,0,116.085,69.137a1.712,1.712,0,0,0-.788.676C39.068,183.651,18.186,294.69,28.43,404.354a2.016,2.016,0,0,0,.765,1.375A487.666,487.666,0,0,0,176.02,479.918a1.9,1.9,0,0,0,2.063-.676A348.2,348.2,0,0,0,208.12,430.4a1.86,1.86,0,0,0-1.019-2.588,321.173,321.173,0,0,1-45.868-21.853,1.885,1.885,0,0,1-.185-3.126c3.082-2.309,6.166-4.711,9.109-7.137a1.819,1.819,0,0,1,1.9-.256c96.229,43.917,200.41,43.917,295.5,0a1.812,1.812,0,0,1,1.924.233c2.944,2.426,6.027,4.851,9.132,7.16a1.884,1.884,0,0,1-.162,3.126,301.407,301.407,0,0,1-45.89,21.83,1.875,1.875,0,0,0-1,2.611,391.055,391.055,0,0,0,30.014,48.815,1.864,1.864,0,0,0,2.063.7A486.048,486.048,0,0,0,610.7,405.729a1.882,1.882,0,0,0,.765-1.352C623.729,277.594,590.933,167.465,524.531,69.836ZM222.491,337.58c-28.972,0-52.844-26.587-52.844-59.239S193.056,219.1,222.491,219.1c29.665,0,53.306,26.82,52.843,59.239C275.334,310.993,251.924,337.58,222.491,337.58Zm195.38,0c-28.971,0-52.843-26.587-52.843-59.239S388.437,219.1,417.871,219.1c29.667,0,53.307,26.82,52.844,59.239C470.715,310.993,447.538,337.58,417.871,337.58Z"/></svg></i></a></li>
+<li><a href="https://linktr.ee/gdsc_dce">Subscribe <i class="fa fa-envelope"></i></a></li>
+          </ul>
+      </nav>
+  <div id="myPopup" class="popup">
+        <div class="popup-content">
+            <h1 style="color:#e67e22;">
+                  Was a trap NVM!
+              </h1>
+              
+            <p>Get Ready! Here you go!</p>
+            <button id="closePopup">
+                  Close
+              </button>
+        </div>
+    </div>
+
+<div id="perspectiva">
+        <div id="contenedor">
+            <div class="cara frontal">
+                <h1>Mr./Ms. Fresher<br/><br/><span>Scroll ↓</span></h1>
+            </div>
+            <div class="cara trasera">
+                <div id="abrir"><img src="gdsc3.png" style="width: 80px; height:80px; margin-top:-20px;" /></div>
+                <div id="partes"></div>
+                <div id="carta">
+                    <hgroup>
+                        <h1>Welcome To DCE</h1>
+      									<h2>↓</h2>
+                    </hgroup>
+
+                    <p>Dear Freshies,<br/>
+Congratulations on joining this craziest and an adventure full of emotions…which is known as college life and a heartiest welcome to be Dronacharyans!! <br/>
+With fresh vibes and fresh goals, get ready for a blast of awesome learning ahead! 🥳<br/>
+Wanna know what's up with GDSC?👀<br/>
+Well well well....<br/>
+Now, let us introduce you to the most mind-blowing part: our tech community! Google Developer Student Clubs (GDSC) of aspiring developers, innovators, and tech enthusiasts. To mark the beginning of an exciting journey that will be filled with learning, collaboration, and growth.<br/>
+Whether you’re a coding ninja or just a curious tech explorer we've got something in store for everyone like amazing Hackathons, tech based games, Skill Development, Community Support , Personal Growth, Fun and Friendship!! <br/>
+Get ready to dive into the depths of tech wizardy, build awesome projects and create memories that will last a lifetime and we are excited to see what you will bring to the table. 
+Guyzz….If you really wanna test something….go ahead……and enjoy this 
+
+<a id="myButton" style="color: #000000"; onclick = "redirect()" >Surprise!!</a><br/>
+📲Please stay tuned for updates about our upcoming events and workshops by keeping an eye on our official communication channels and our official website and grab this amazing opportunity. <br/>
+If you have any questions or need assistance, feel free to reach out to any of our GDSC team members, chatbot or enclosed copy of doubts section, and we'll be more than happy to help you.<br/>
+Once again, welcome to Dronacharya College of Engineering. We are looking forward to embarking on this incredible journey with you.<br/>
+Best regards,<br/>
+Team GDSC-DCE<br/>
+<a src="https://linktr.ee/gdsc_dce">https://linktr.ee/gdsc_dce</a><br/>
+</p>
+<center>
+
+<button class="accordion">Enclosed</button>
+<div class="panel">
+<iframe src="https://padlet.com/embed/7vto7h93txg4454c" frameborder="0" allow="camera;microphone;geolocation" style="width:100%;height:608px;display:block;padding:0;margin:0;"></iframe>
+</div></center>
+
+
+                </div>
+            </div>
+        </div>
+</div>
+<div id="wrapper"></div>
+
+	<div class="shadow"></div>
+<script>
+      function redirect () {
+         var interval = setInterval(myURL, 8000);
+      }
+
+      function myURL() {
+         document.location.href = 'quiz.html';
+         clearInterval(interval);
+      }
+   </script>
+  <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js'></script>
+      <script id="rendered-js">
+
+$(window).scroll(function () {
+  var scr = $(window).scrollTop(),
+  C = $('#contenedor'),
+  A = $('#abrir'),
+  E = $('#carta'),
+  F = $('#carta hgroup h2'),
+  P = $('#perspectiva');
+
+
+  if (scr >= 100) {
+    C.css({
+      'transition': 'all 1s',
+      'transform': 'rotateY(180deg)' });
+
+    A.css({
+      'transition': 'all 1s .5s',
+      'transform': 'rotateX(180deg)',
+      'z-index': '0' });
+
+  }
+
+  else if (scr <= 100) {
+      C.css({
+        'transition': 'all 1s .5s',
+        'transform': 'rotateY(0deg)' });
+
+      A.css({
+        'transition': 'all 1s',
+        'transform': 'rotateX(0deg)',
+        'z-index': '10' });
+
+    }
+
+  if (scr >= 500) {
+    E.css({
+      'transition': 'all .5s 1s',
+      'top': '-550px',
+      'height': '500px' });
+
+    P.css({
+      'transition': 'all 1s',
+      'transform': 'translateY(450px)' });
+
+    F.css({
+      'transition': 'all 1s',
+      'transform': 'rotateZ(180deg)' });
+
+  }
+
+  else if (scr <= 500) {
+      E.css({
+        'transition': 'all .5s',
+        'top': '3px',
+        'height': '200px' });
+
+      P.css({
+        'transform': 'translateY(0px)' });
+
+      F.css({
+        'transform': 'rotateZ(0deg)' });
+
+    }
+});
+
+    </script>
+
+  <script>
+    window.GPTTConfig = {
+      uuid: "28eff86beb8a4622ae58402feb4f1d79",
+    }
+  </script>
+  <script
+    src="https://app.gpt-trainer.com/widget-asset.js"
+    defer>
+  </script>
+    <script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    } 
+  });
+}
+</script>
+ <script>
+        myButton.addEventListener("click", function () {
+            myPopup.classList.add("show");
+        });
+        closePopup.addEventListener("click", function () {
+            myPopup.classList.remove("show");
+        });
+        window.addEventListener("click", function (event) {
+            if (event.target == myPopup) {
+                myPopup.classList.remove("show");
+            }
+        });
+    </script>
+  
+
+</body>
+
+</html>
