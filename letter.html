@@ -407,7 +407,7 @@ a {
 <div id="perspectiva">
         <div id="contenedor">
             <div class="cara frontal">
-                <h1>Mr./Ms. Fresher<br/><br/><span><a href="#carta" style="color: black;">Scroll ↓</a></span></h1>
+                <h1>Mr./Ms. Fresher<br/><br/><span><a href="#carta" onclick="scrollSmoothToBottom()" style="color: black;">Scroll ↓</a></span></h1>
             </div>
             <div class="cara trasera">
                 <div id="abrir"><img src="gdsc3.png" style="width: 80px; height:80px; margin-top:-20px;" /></div>
@@ -571,7 +571,11 @@ for (i = 0; i < acc.length; i++) {
             }
         });
     </script>
-  
+  <script>const scrollSmoothToBottom = () => {
+   $(scrollingElement).animate({
+      scrollTop: document.body.scrollHeight,
+   }, 500);
+}</script>
 
 </body>
 
